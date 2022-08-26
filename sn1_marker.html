@@ -1,30 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .fit { /* set relative picture size */
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .center {
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
 
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=2" />
-    <link rel="icon" href="ar_icon.ico" />
+<img class="center fit" src="pattern-sn1.png" alt="Pattern SN1" >
 
-    <!-- Import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
-    
-  </head>
-  <body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" language="JavaScript">
+    function set_body_height() { // set body height = window height
+        $('body').height($(window).height());
+    }
+    $(document).ready(function() {
+        $(window).bind('resize', set_body_height);
+        set_body_height();
+    });
+</script>
 
-    <div class="wrapper">
-      <div class="content" role="main">
-        <!-- This is the start of content for our page -->
-        <h1 class="title">SN1 Marker</h1>
-
-<img src="pattern-sn1.png" alt="Pattern SN1">
-		
-
-      </div>
-    </div>
-    <footer class="footer">
-      <div class="links"></div>
-
-    </footer>
-  </body>
+</body>
 </html>
