@@ -20,12 +20,12 @@
   let element = $('#container-01');
   let config = { backgroundColor: 'white' };
   let viewer = $3Dmol.createViewer( element, config );
-  let pdbUri = 'sn1_reaction_1.pdb';
+  let pdbUri = 'sn1_reaction_2.pdb';
   jQuery.ajax( pdbUri, {
     success: function(data) {
       let v = viewer;
       v.addModelsAsFrames( data, "pdb" );                       /* load data */
-      v.animate({loop: "backAndForth"});
+      v.animate({interval: 100, step: 1 ,loop: "backAndForth"});
       v.setStyle({sphere:{radius:0.4},stick:{radius:0.15}});  /* style all atoms */
       v.zoomTo();                                      /* set camera */
       v.render();                                      /* render scene */
@@ -36,6 +36,8 @@
     },
   });
 </script>
+
+
 </body>
 
 </html>
