@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--
-      This is the page head - it contains info the browser uses to display the page
-      You won't see what's in the head in the page
-      Scroll down to the body element for the page content
-    -->
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="ar_icon.ico" />
 
-    <!--
-      This is an HTML comment
-      You can write text in a comment and the content won't be visible in the page
-    -->
-
     <title>AR Molecule Viewer</title>
 
-    <!-- Import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    <!--<link rel="stylesheet" href="style.css" />-->
 
-    <!-- Import the webpage's javascript file -->
     <script src="/script.js" defer></script>
     <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
@@ -31,8 +18,6 @@
 
 
 <body>
-
-        <!-- This is the start of content for our page -->
         <h1 class="title">AR Molecule Viewer</h1>
 		Open a marker image on your computer, or print this marker image out. On your phone, open the "Augmented Reality Viewer" and point the camera at the marker.
 		        It may take a few seconds for the model to load.
@@ -40,6 +25,10 @@
         <br>
 		<button>
 		<a href="enter_ar.html" style="text-decoration:none" >Augmented Reality Viewer </a>
+		</button>
+
+		<button>
+		<a href="enter_ar_user_interact.html" style="text-decoration:none" >Augmented Reality Viewer (User click/rotation)  </a>
 		</button>
         <br>
         <br>
@@ -81,9 +70,10 @@
 			wid.addModelsAsFrames(data, "pdb");
 			wid.setBackgroundColor(0xF6F6F6);
 			wid.setStyle({chain:'A'},{cartoon:{color:'spectrum'}});
+			wid.setStyle({resi:['42','58','64','87','104']},{stick:{colorscheme:"cyanCarbon"}})
 			wid.setStyle({resn:'HEM'},{stick:{}})
-			wid.setStyle({resn:'OXY'},{sphere:{}})
-			wid.setStyle({elem:'Fe'},{sphere:{}})
+			wid.setStyle({resn:'OXY'},{sphere: {scale: 0.7}})
+			wid.setStyle({elem:'Fe'},{sphere: {scale: 0.7}})
 			wid.zoomTo();
 			wid.render();
 			wid.animate({'loop': set['animation'], 'interval': set['interval']});
